@@ -1,13 +1,14 @@
-<html xmlns:th="http://www.thymeleaf.org">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<html>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head>
-        <title>GameShop</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}">GAMESHOP</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,55 +30,20 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" th:href="@{/informacion}" style="color: green;">Informacion</a>
-                    </li>v
+                    </li>
                   </ul>
                     <!--<span class="navbar-text">
                     Cualquier texto
                   </span>-->
                 </div>
             </div>    
-        </nav>       
-        <div>
-            <div class="destacados">
-                <a style="color: aqua; font-family: fantasy; font-size: 60px;">Destacados</a>
+        </nav>
+        <div class="card border-warning mb-3" style="width: 18rem; ">
+            <img src="../static/images/maps.png" class="card-img-top" alt="..." width="300px">
+            <div class="card-body" style="text-align: center">
+                <p class="card-text">A continuacion la ubicacion de GameShop </p>
+                <a href="https://g.page/UFidelitasSanPedro?share" class="btn btn-primary">Ir a google maps</a>
             </div>
-            <ul class="item-list" style="padding-right: 80px;">
-                <li>
-                    <picture>
-                        <img src='/images/pc.png' width=300px alt="pc">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img src='/images/play4.jpg' width=300px alt="play4">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img src='/images/farcry.jpg' width=200px alt="farcry">
-                    </picture>
-                </li>
-            </ul>
-            <div class="destacados">
-                <a>Ofertas</a>
-            </div>
-            <ul class="item-list" style="padding-right: 80px;">
-                <li>
-                    <picture>
-                        <img src='/images/xbox.jpg' width=300px alt="xbox">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img src='/images/nintendo.png' width=300px alt="nintendo">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img src='/images/play5.png' width=200px alt="play5">
-                    </picture>
-                </li>
-            </ul> 
-        <div/>    
+        </div>
     </body>
 </html>
