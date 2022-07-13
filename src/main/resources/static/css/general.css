@@ -1,0 +1,34 @@
+.item-list {
+    text-align: center;
+    padding-inline-start: 0px;
+    
+}
+
+.item-list li {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.destacados {
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.navbar {
+    padding: 30px;
+    font-size: 20px;
+}
+
+.texto-debajo {
+    display: block;
+    margin: 0 auto;
+   
+    width:200px;
+}

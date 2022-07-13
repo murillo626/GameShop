@@ -1,3 +1,4 @@
+
 package com.gameshop.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -7,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @Slf4j
-public class IndexController {
+public class XboxController {
+    
     @Autowired
     
     
-    @GetMapping("/")
+    @GetMapping("/xbox")
     public String inicio() {       
         
-        return "index";
+        return "/xbox";
     }
-    
 }
