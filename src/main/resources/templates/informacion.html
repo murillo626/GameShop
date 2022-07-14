@@ -1,45 +1,68 @@
 <html>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head>
-        <title>TODO supply a title</title>
+        <title>Ubicación</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-<nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">GAMESHOP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+                <a class="navbar-brand" th:href="@{/}">GAMESHOP</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link" th:href="@{/playstation}" style="color: blue;">PlayStation</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" th:href="@{/microsoft}" style="color: gold;">Microsoft</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" th:href="@{/nintendo}" style="color: red;">Nintendo</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" th:href="@{/xbox}" style="color: green;">Xbox</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" th:href="@{/informacion}" style="color: green;">Informacion</a>
-                    </li>
-                  </ul>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/playstation}" style="color: blue;">PlayStation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/microsoft}" style="color: gold;">Microsoft</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/nintendo}" style="color: red;">Nintendo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/xbox}" style="color: green;">Xbox</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/informacion}" style="color: turquoise;">Informacion</a>
+                        </li>
+                    </ul>
                     <!--<span class="navbar-text">
                     Cualquier texto
                   </span>-->
                 </div>
             </div>    
         </nav>
-        <div class="card border-warning mb-3" style="width: 18rem; ">
-            <img src="../static/images/maps.png" class="card-img-top" alt="..." width="300px">
+        
+        <div class="container">
+            <div class="row g-2">
+                <div class="col-6">
+                    <div class="p-3 border bg-light">Custom column padding</div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3 border bg-light">Custom column padding</div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3 border bg-light">Custom column padding</div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3 border bg-light">Custom column padding</div>
+                </div>
+            </div>
+        </div>
+        <ul class="informacion">
+            <li>Aparcamiento, Calle Siles 203, Santa Marta, San José, San Pedro, 11501</li>
+            <li>8888-8888 / 2222-2222</li>
+            <li>contacto@gameshop.com</li>
+            <li>Lunes a Sábado de 9:00am a 6:00pm / Domingo cerrado.</li>
+        </ul>
+        <div class="maps" style="width: 18rem; ">
+            <img src="images/maps.png" class="card-img-top" alt="..." width="300px">
             <div class="card-body" style="text-align: center">
                 <p class="card-text">A continuacion la ubicacion de GameShop </p>
                 <a href="https://g.page/UFidelitasSanPedro?share" class="btn btn-primary">Ir a google maps</a>

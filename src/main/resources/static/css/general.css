@@ -32,3 +32,16 @@
    
     width:200px;
 }
+
+.maps {  
+    padding-top: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.informacion {
+    padding-top: 160px;
+    text-align: center;
+    list-style: none;
+}
