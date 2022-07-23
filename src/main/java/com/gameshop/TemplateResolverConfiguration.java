@@ -30,4 +30,17 @@ public class TemplateResolverConfiguration {
         resolver.setCheckExistence(true);
         return resolver;
     }
+    
+    @Bean
+    public SpringResourceTemplateResolver templateResolve_2(){
+        SpringResourceTemplateResolver resolver = 
+                new SpringResourceTemplateResolver();
+        resolver.setPrefix("/templates/articulo/");
+        resolver.setSuffix(".html");
+        resolver.setTemplateMode(TemplateMode.HTML);
+        resolver.setCharacterEncoding("UTF-8");
+        resolver.setOrder(0);
+        resolver.setCheckExistence(true);
+        return resolver;
+    }
 }

@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <link href="/css/general.css" rel="stylesheet" type="text/css"/>
+    <head th:replace="layout/plantilla :: head">
+        <title>GameShop</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+            <h2>Listado de articulos</h2>
+            <a class="btn btn-primary" th:href="@{/articulo/nuevo}" role="button">Nuevo Articulo</a>
+            <div thrif="${articulos !=null and !articulos.empty}">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Existencias</th>
+                            <th scope="col">Activo</th>
+                            <th scope="col">Eliminar</th>
+                            <th scope="col">Modidicar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr th:each="articulo:${articulos}">
+                            <td th:text="${articulo.descripcion}"></td>
+                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
+                            <td th:text="${articulo.existencias}" style="text-align: center"></td>
+                            <td style="text-align: center"><input type="checkbox" name="activo"th:checked="${articulo.activo}"disabled="true"/></td>
+                            <td><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}">Eliminar</a></td>
+                            <td><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${articulos == null or articulos.empty}">
+                <h3>No hay articulos... </h3>
+            </div>
+        </div>
+        <footer th:replace="layout/Plantilla :: footer"/>
+    </body>
+</html>
