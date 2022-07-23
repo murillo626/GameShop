@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <link href="/css/general.css" rel="stylesheet" type="text/css"/>
+    <head th:replace="layout/plantilla :: head">
+        <title>GameShop</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+            <h2>Listado de clientes</h2>
+            <a class="btn btn-primary" th:href="@{/cliente/nuevo}" role="button">Nuevo Cliente</a>
+            <div thrif="${clientes !=null and !clientes.empty}">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Limite</th>
+                            <th scope="col">Eliminar</th>
+                            <th scope="col">Modidicar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cliente:${clientes}">
+                            <td th:text="${cliente.nombre}"></td>
+                            <td th:text="${cliente.apellidos}"></td>
+                            <td th:text="${cliente.correo}"></td>
+                            <td th:text="${cliente.telefono}"></td>
+                            <td th:text="${#numbers.formatDecimal(cliente.credito.limite,3,2)}"></td>
+                            <td><a th:href="@{/cliente/eliminar/} + ${cliente.id_cliente}">Eliminar</a></td>
+                            <td><a th:href="@{/cliente/modificar/} + ${cliente.id_cliente}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${clientes == null or clientes.empty}">
+                <h3>No hay clientes... </h3>
+            </div>
+        </div>
+        <footer th:replace="layout/Plantilla :: footer"/>
+    </body>
+</html>
+
