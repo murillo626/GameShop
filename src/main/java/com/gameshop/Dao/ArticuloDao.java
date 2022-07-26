@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ArticuloDao extends CrudRepository<Articulo, Long>{
     
+    public Articulo findByRuta(String ruta);
 }

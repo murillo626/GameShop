@@ -34,4 +34,10 @@ public class ArticuloServiceImpl implements Articulo_Services{
     public Articulo getArticulo(Articulo articulo) {
        return articuloDao.findById(articulo.getId_Articulo()).orElse(null);
     }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Articulo getRuta(Articulo articulo) {
+        return articuloDao.findByRuta(articulo.getRuta());
+    }
 }

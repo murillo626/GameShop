@@ -18,15 +18,17 @@ public class Articulo implements Serializable{
     private double precio;
     private int existencias;
     private boolean activo;
+    private String ruta;
     public Articulo(){
     }
 
-    public Articulo(Long id_Categoria, String descripcion, String detalle, double precio, int existencias, boolean activo) {
+    public Articulo(Long id_Categoria, String descripcion, String detalle, double precio, int existencias, boolean activo, String ruta) {
         this.id_Categoria = id_Categoria;
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
         this.existencias = existencias;
         this.activo = activo;
+        this.ruta = ruta;
     }   
 }

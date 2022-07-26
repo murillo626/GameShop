@@ -7,5 +7,6 @@ public interface Articulo_Services {
     public void save(Articulo articulo);
     public void delete(Articulo articulo);
     public Articulo getArticulo(Articulo articulo);
+    public Articulo getRuta(Articulo articulo);
 }
 

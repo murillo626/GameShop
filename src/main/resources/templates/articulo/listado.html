@@ -19,17 +19,17 @@
                             <th scope="col">Existencias</th>
                             <th scope="col">Activo</th>
                             <th scope="col">Eliminar</th>
-                            <th scope="col">Modidicar</th>
+                            <th scope="col">Modificar</th>
                         </tr>
                     </thead>
                     <tbody>
                        <tr th:each="articulo:${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
-                            <td th:text="${articulo.existencias}" style="text-align: center"></td>
-                            <td style="text-align: center"><input type="checkbox" name="activo"th:checked="${articulo.activo}"disabled="true"/></td>
-                            <td><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}">Eliminar</a></td>
-                            <td><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}">Modificar</a></td>
+                            <td scope="row" th:text="${articulo.descripcion}"></td>
+                            <td scope="row" th:text="${'₡'+#numbers.formatDecimal(articulo.precio,3,2)}"></td>
+                            <td scope="row" th:text="${articulo.existencias}"></td>
+                            <td scope="row"><input type="checkbox" name="activo"th:checked="${articulo.activo}"disabled="true"/></td>
+                            <td scope="row"><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}">Eliminar</a></td>
+                            <td scope="row"><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}">Modificar</a></td>
                         </tr>
                     </tbody>
                 </table>

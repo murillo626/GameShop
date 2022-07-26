@@ -29,11 +29,12 @@
             <li>Lunes a Sábado de 9:00am a 6:00pm / Domingo cerrado.</li>
         </ul>
         <div class="maps" style="width: 18rem; ">
-            <img src="images/maps.png" class="card-img-top" alt="..." width="300px">
+            <img th:src="@{https://user-images.githubusercontent.com/105826473/180692722-c6e619a1-10af-4852-861c-b41fbc6bdc5d.png}" class="card-img-top" alt="..." width="300px">
             <div class="card-body" style="text-align: center">
                 <p class="card-text">A continuacion la ubicacion de GameShop </p>
-                <a href="https://g.page/UFidelitasSanPedro?share" class="btn btn-primary">Ir a google maps</a>
+                <a href="https://g.page/UFidelitasSanPedro?share" class="btn btn-primary" target=”_blank”>Ir a google maps</a>
             </div>
         </div>
+        <footer th:replace="layout/Plantilla :: footer"/>
     </body>
 </html>
