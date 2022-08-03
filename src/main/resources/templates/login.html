@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>GameShop</title>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+
+        <section id="acctions" class="py-4 bg-light">
+            <div class="container">
+                <div class="row"></div>
+            </div>
+        </section>
+        <section id="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="bg-light" id="navbarText" >login</h4>
+                            </div>
+                            <div class="mb-3">
+                                <form method="post" th:action="@{/login}">
+                                    <div class="mb-3">
+                                        <label for="username">username</label>
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="Usuario"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password">password</label>
+                                        <input type="password" class="form-control" name="password" id="password"placeholder="Clave"/>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" value="Login">login</button>
+                                    </div>
+                                </form>            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

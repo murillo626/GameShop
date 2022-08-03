@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head th:replace="layout/plantilla :: head">
         <title>GameShop</title>
@@ -9,7 +10,7 @@
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
             <h2>Listado de articulos</h2>
-            <a class="btn btn-primary" th:href="@{/articulo/nuevo}" role="button">Nuevo Articulo</a>
+            <a class="btn btn-primary" th:href="@{/articulo/nuevo}" sec:authorize="hasRole('ROLE_ADMIN')" role="button">Nuevo Articulo</a>
             <div thrif="${articulos !=null and !articulos.empty}">
                 <table class="table">
                     <thead class="table-dark">
@@ -18,8 +19,8 @@
                             <th scope="col">Precio</th>
                             <th scope="col">Existencias</th>
                             <th scope="col">Activo</th>
-                            <th scope="col">Eliminar</th>
-                            <th scope="col">Modificar</th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Modificar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,8 +29,8 @@
                             <td scope="row" th:text="${'₡'+#numbers.formatDecimal(articulo.precio,3,2)}"></td>
                             <td scope="row" th:text="${articulo.existencias}"></td>
                             <td scope="row"><input type="checkbox" name="activo"th:checked="${articulo.activo}"disabled="true"/></td>
-                            <td scope="row"><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}">Eliminar</a></td>
-                            <td scope="row"><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}">Modificar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}">Eliminar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}">Modificar</a></td>
                         </tr>
                     </tbody>
                 </table>

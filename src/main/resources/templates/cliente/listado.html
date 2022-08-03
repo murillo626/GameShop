@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head th:replace="layout/plantilla :: head">
         <title>GameShop</title>
@@ -9,7 +10,7 @@
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
             <h2>Listado de clientes</h2>
-            <a class="btn btn-primary" th:href="@{/cliente/nuevo}" role="button">Nuevo Cliente</a>
+            <a class="btn btn-primary" th:href="@{/cliente/nuevo}" sec:authorize="hasRole('ROLE_ADMIN')" role="button">Nuevo Cliente</a>
             <div thrif="${clientes !=null and !clientes.empty}">
                 <table class="table">
                     <thead class="table-dark">
@@ -19,8 +20,8 @@
                             <th scope="col">Correo</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Limite</th>
-                            <th scope="col">Eliminar</th>
-                            <th scope="col">Modidicar</th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Modidicar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,8 +31,8 @@
                             <td scope="row" th:text="${cliente.correo}"></td>
                             <td scope="row" th:text="${cliente.telefono}"></td>
                             <td scope="row" th:text="${#numbers.formatDecimal(cliente.credito.limite,3,2)}"></td>
-                            <td scope="row"><a th:href="@{/cliente/eliminar/} + ${cliente.id_cliente}">Eliminar</a></td>
-                            <td scope="row"><a th:href="@{/cliente/modificar/} + ${cliente.id_cliente}">Modificar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/cliente/eliminar/} + ${cliente.id_cliente}">Eliminar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/cliente/modificar/} + ${cliente.id_cliente}">Modificar</a></td>
                         </tr>
                     </tbody>
                 </table>

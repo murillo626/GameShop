@@ -8,3 +8,20 @@ public class GameshopApplication {
 		SpringApplication.run(GameshopApplication.class, args);
 	}
 }
+            //datos para iniciar sesion
+                /*.inMemoryAuthentication()
+                .withUser("Jeff") 
+                .password("{noop}123")
+                .roles("ADMIN","VENDEDOR","USER")
+                .and()
+                .withUser("Isaac")
+                .password("{noop}123")
+                .roles("ADMIN","VENDEDOR","USER")
+                .and()
+                .withUser("I")
+                .password("{noop}456")
+                .roles("VENDEDOR","USER")
+                .and()
+                .withUser("J")
+                .password("{noop}789")
+                .roles("USER");*/

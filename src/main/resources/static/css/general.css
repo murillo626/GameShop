@@ -40,6 +40,15 @@
     margin-right: auto;
 }
 
+.logo{
+    margin-top: 10px;
+    width: 10px;
+}
+
+.infi{
+    text-align: center;
+}
+
 .informacion {
     padding-top: 160px;
     text-align: center;
