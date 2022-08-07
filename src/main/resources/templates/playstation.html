@@ -1,67 +1,39 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:sec="http://thymeleaf.org/extras/spring-security">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head th:replace="layout/plantilla :: head">
-        <title>GameShop</title>
-        <meta charset="UTF-8">
+        <title>TechShop</title>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        <div>
+        <div class="container">
             <div class="destacados">
-                <a  style="color: blue;  font-family: fantasy; font-size: 60px;">Playstation</a>
+                <a style="color: blue;  font-family: fantasy; font-size: 60px;">PlayStation</a>
             </div>
-            <div class="destacados">
-                <a  style="color: blue;  font-family: fantasy;">¡Tus articulos de Sony y de Playstation favoritos los encontras acá!</a>
+             <div class="destacados">
+                <a  style="color: blue;  font-family: fantasy;">¡Tus productos de PlayStation acá!</a>
             </div>
-            <ul class="item-list" style="padding-right: 80px;">
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692737-4da184a4-a2cd-4e6c-a146-6c03a5560a30.png}' width=300px alt="pc">
-                        <p class="texto-debajo">Playstation 5</p>
-                        <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692736-b294c05f-a26b-4c2e-88ad-a84d444d9134.jpg}' width=300px alt="play4">
-                        <p class="texto-debajo">Playstation 4 Pro</p>
-                        <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692718-c7fe3838-7add-4766-b6e2-74f1540bfba8.jpg}' width=200px alt="farcry">
-                        <p class="texto-debajo">Mando Playstation 5</p>
-                        <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                    </picture>
-                </li>
-            </ul>         
-            <ul class="item-list" style="padding-right: 80px;">
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692738-af140a87-5ff9-43c4-b87d-a222aed2f671.jpg}' width=300px alt="vr">
-                        <p class="texto-debajo">Playstation VR</p>
-                        <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692717-562b1aa3-777e-4714-a509-a9d0fbd83fac.jpg}' width=300px alt="play4">
-                        <p class="texto-debajo">Juego exclusivo God of War</p>
-                        <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692741-3dc49f58-bf98-42bc-bd3e-a494e13fad15.jpg}' width=200px alt="vita">
-                        <p class="texto-debajo">Playstation Vita</p>
-                        <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                    </picture>
-                </li>
-            </ul>
-        <div/>    
-        <footer th:replace="layout/Plantilla :: footer"/>
+
+            <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">                
+                <div class="card" th:each="articulo : ${articulos}">
+                    <div class="card-body">
+                        <h5 class="card-title">[[${articulo.descripcion}]]</h5>
+                        <h6 class="card-subtile mb-2 text-muted text-end">
+                            [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]
+                        </h6>
+                        <a class='card-link' th:href="@{/carrito/agregar/}+${articulo.id_Articulo}">Comprar</a>
+                        <img th:src="${articulo.ruta}" alt="" width="150px"/>
+                        <br/>
+                        <p class="card-text">[[${articulo.detalle}]]</p>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${articulos == null or articulos.empty}">
+                <h3>[[#{articulo.no_mostrar}]]</h3>
+            </div>
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

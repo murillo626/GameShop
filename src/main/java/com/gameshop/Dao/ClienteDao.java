@@ -1,5 +1,6 @@
 package com.gameshop.Dao;
 
+
 import com.gameshop.Domain.Cliente;
 import org.springframework.data.repository.CrudRepository;
 

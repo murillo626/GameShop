@@ -18,10 +18,9 @@ public class ArticuloController {
     //El getmappig es para establecer una ruta del sitio
     @Autowired
     private Categoria_Services CategoriaService;
-
+    
     @GetMapping("/articulo/listado")
     public String inicio(Model model) {
-        log.info("Estamos del lado de programacion");
         var articulos = Articuloservices.getArticulos();
         model.addAttribute("articulos", articulos);
         return "/articulo/listado";
