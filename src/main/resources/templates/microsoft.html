@@ -15,52 +15,23 @@
             <div class="destacados">
                 <a  style="color: gold;  font-family: fantasy;">¡Tus productos de Microsoft y licencias acá!</a>
             </div>
-            <ul class="item-list" style="padding-right: 80px;">
-                <li>
-                <picture>
-                    <img th:src='@{https://user-images.githubusercontent.com/105826473/180692729-f3fe0e2e-65e0-4d2b-80e0-2572902dece1.jpg}' width=300px alt="pc">
-                    <p class="texto-debajo">Office 365</p>
-                    <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                </picture>
-                </li>
-                <li>
-                <picture>
-                    <img th:src='@{https://user-images.githubusercontent.com/105826473/180692742-cdf2a3f2-2ee3-43fd-9372-4028dc27070c.jpg}' width=300px alt="play4">
-                    <p class="texto-debajo">Windows 10 Pro</p>
-                    <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                </picture>
-                </li>
-                <li>
-                <picture>
-                    <img th:src='@{https://user-images.githubusercontent.com/105826473/180692739-9b0f3d8a-114d-4582-b5b5-facf19d6572c.jpg}' width=200px alt="laptop">
-                    <p class="texto-debajo">Microsoft Surface Laptop</p>
-                    <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                </picture>
-                </li>
-            </ul>         
-            <ul class="item-list" style="padding-right: 80px;">
-                <li>
-                <picture>
-                    <img th:src='@{https://user-images.githubusercontent.com/105826473/180692743-bfa26c0e-f537-4fd6-95f3-40b3491ba0db.jpg}' width=300px alt="windows11">
-                    <p class="texto-debajo">Windows 11 Pro</p>
-                    <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                </picture>
-                </li>
-                <li>
-                <picture>
-                    <img th:src='@{https://user-images.githubusercontent.com/105826473/180692730-6b29b764-2adf-4753-88b2-e05401fec74e.jpg}' width=300px alt="office">
-                    <p class="texto-debajo">Office Home & Student 2021</p>
-                    <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                </picture>
-                </li>
-                <li>
-                <picture>
-                    <img th:src='@{https://user-images.githubusercontent.com/105826473/180692740-7a796378-2a78-4e59-97a8-8ad692fdd83e.jpg}' width=200px alt="teclado">
-                    <p class="texto-debajo">Teclado Bluetooth Microsoft</p>
-                    <a th:href="@{/}"><img src='/images/carrito.jpg' width=20px alt="carrito"></a>
-                </picture>
-                </li>
-            </ul>   
+            <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">                
+                <div class="card" th:each="articulo : ${articulos}" th:if="${articulo.id_Categoria==4}">
+                    <div class="card-body">
+                        <h5 class="card-title">[[${articulo.descripcion}]]</h5>
+                        <h6 class="card-subtile mb-2 text-muted text-end">
+                            [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]
+                        </h6>
+                        <a class='card-link' th:href="@{/carrito/agregar/}+${articulo.id_Articulo}">Comprar</a>
+                        <img th:src="${articulo.ruta}" alt="" width="150px"/>
+                        <br/>
+                        <p class="card-text">[[${articulo.detalle}]]</p>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${articulos == null or articulos.empty}">
+                <h3>[[#{articulo.no_mostrar}]]</h3>
+            </div>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>
     </body>

@@ -17,9 +17,9 @@ public class XboxController {
     private Articulo_Services Articuloservices;
     
     @GetMapping("/xbox")
-    public String inicio(Articulo articulo, Model model) {       
-        var articulos = Articuloservices.getRuta(articulo);
-        model.addAttribute("articulos", articulos);
-        return "/xbox";
+    public String inicio(Model model) {       
+        var articulos=Articuloservices.getArticulos();
+        model.addAttribute("articulos",articulos);
+        return "xbox";
     }
 }
