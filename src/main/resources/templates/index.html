@@ -10,25 +10,55 @@
         <header th:replace="layout/plantilla :: header"/>
         <div>
             <div class="destacados">
-                <a style="color: aqua; font-family: fantasy; font-size: 60px;">Destacados</a>
+                <a style="color: crimson; font-family: fantasy; font-size: 60px;">Ofertas</a>
             </div>
-            <ul class="item-list" style="padding-right: 80px;">
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692734-6cffe90e-5a07-45e3-90e1-d64533ea5ac5.png}' width=300px alt="pc">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692736-b294c05f-a26b-4c2e-88ad-a84d444d9134.jpg}' width=300px alt="play4">
-                    </picture>
-                </li>
-                <li>
-                    <picture>
-                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692711-75613290-89b6-47d3-b1d8-3e53aaca2409.jpg}' width=200px alt="farcry">
-                    </picture>
-                </li>
-            </ul>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692744-27c4f0f7-e27b-4881-a776-4f3e121b23ba.jpg}' class="log"  width=200px alt="...">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Xbox ONE</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692727-a483db16-9f72-4e70-bd6c-1f93e6e5b92f.png}' class="log" width=200px alt="...">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Nintendo Switch</h5>
+                                <p>Ideal para jugar mientras no estas en casa, gracias a su portabilidad</p>
+                            </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img th:src='@{https://user-images.githubusercontent.com/105826473/180692737-4da184a4-a2cd-4e6c-a146-6c03a5560a30.png}' class="log" width=200px alt="...">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>PlayStation 5</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             <div class="destacados">
                 <a style="color: crimson; font-family: fantasy; font-size: 60px;">Ofertas</a>
             </div>

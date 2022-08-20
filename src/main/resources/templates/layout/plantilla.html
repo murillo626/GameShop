@@ -10,116 +10,120 @@
             <script th:scr="@{/webjars/popper.js/umd/popper-min.js}"></script>
             <script th:scr="@{/webjars/bootstrap/js/bootstrap-min.js}"></script>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-            <link href="../../static/css/general.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body>
-        <header th:fragmet="header" class="header">
-            <nav class="navbar navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a th:href="@{/}"> <img src="../images/logogame.png" alt="" height="100px" width=120px  /></a> 
-                    <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
-                            <li class="nav-item mr-3">
-                                <a href="#" class="nav-link">
-                                    <i class="fas fa-user"></i>
-                                    Rol:
-                                    <span sec:authentication="name">xx</span>
-                                </a>
-                            </li>
-                        </ul>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarText">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/playstation}" style="color: blue;">PlayStation</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/microsoft}" style="color: gold;">Microsoft</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/nintendo}" style="color: red;" >Nintendo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/xbox}" style="color: green;">Xbox</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/informacion}" style="color: green;">Informacion</a>
-                            </li>
-                            <li class="nav-item"sec:authorize="hasRole('ROLE_VENDEDOR')">
-                                <a class="nav-link" th:href="@{/cliente/listado/}" style="color: green;">Clientes</a>
-                            </li>
-                            <li class="nav-item"sec:authorize="hasRole('ROLE_VENDEDOR')">
-                                <a class="nav-link" th:href="@{/articulo/listado/}" style="color: green;">Articulos</a>
-                            </li>
-                            <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
-                                <li class="nav-item">
-                                    <form method="POST" th:action="@{/logout}">
-                                        <a href="#" onclick="this.parentNode.submit();"class="nav-link">         
-                                            <i class="fas fa-user-times"></i>logout</a>
-                                    </form>
-                                </li>
-                            </ul>
-                        </ul>
-                            <!--<span class="navbar-text">
-                        Cualquier texto
-                      </span>-->
-                    </div>
-                </div>    
-            </nav>       
-        </header>
-        <footer th:fragmet="footer" class="footer">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+                <link href="../../static/css/general.css" rel="stylesheet" type="text/css"/>
+                </head>
+                <body>
+                    <header th:fragmet="header" class="header">
+                        <nav class="navbar navbar-dark bg-dark ">
+                            <div class="container-fluid">
+                                <a class="logo" th:href="@{/}"> <img src="../images/logogame.png" alt="" height="80px" width=100px></a>
+                                
+                                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" sec:authorize="hasRole('ROLE_VENDEDOR')" aria-current="page"th:href="@{/articulo/listado/}">Articulos</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" sec:authorize="hasRole('ROLE_VENDEDOR')"aria-current="page"th:href="@{/cliente/listado/}">Clientes</a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                   Categorias
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-menu-dark">
+                                                    <li><a class="dropdown-item" th:href="@{/playstation/}">PlayStation</a></li>
+                                                    <li><a class="dropdown-item" th:href="@{/xbox/}">Xbox</a></li>
+                                                    <li><a class="dropdown-item" th:href="@{/nintendo/}">Nintendo</a></li>
+                                                    <li><a class="dropdown-item" th:href="@{/microsoft/}">Microsoft</a></li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+            </header>
+            <footer th:fragmet="footer" class="footer">
             <br/>
             <br/>
             <br/>
-            <div class="container">
-            <div class="row g-2">
-                <div class="col-6 lead text-center">
-                    <div class="p-3 border caja ">
-                        <p class="texto">
-                            Profesionales en videojuegos 
-                            <p class="img">
-                                <img src="../images/dispositivo-de-juego.png" width="50" alt=""/>
-                            </p>
-                        </p>
+                <div class="container">
+                    <div class="row g-2">
+                        <div class="col-6 lead text-center">
+                            <div class="p-3 border caja ">
+                                <p class="texto">
+                                    Profesionales en videojuegos 
+                                        <p class="img">
+                                            <img src="../images/dispositivo-de-juego.png" width="50" alt=""/>
+                                        </p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 lead text-center">
+                            <div class="p-3 border caja">
+                                <p class="texto"> 
+                                    Servicio de reparaciones
+                                    <p class="img">
+                                        <img src="../images/herramienta-de-reparacion.png" alt="" width="50"/>
+                                    </p>
+                                </p>
+                            </div>
+                        </div>
+                            <div class="col-6 lead text-center">
+                                <div class="p-3 border caja">
+                                    <p class="texto"> 
+                                        Financiamiento disponible
+                                        <p class="img">
+                                            <img src="../images/ahorro.png" alt="" width="50"/>
+                                        </p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-6 lead text-center">
+                                <div class="p-3 border caja">
+                                    <p class="texto"> 
+                                        Stock actualizado 
+                                        <p class="img">
+                                            <img src="../images/en-stock.png" alt="" width="50"/>
+                                        </p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 lead text-center">
-                    <div class="p-3 border caja">
-                        <p class="texto"> 
-                            Servicio de reparaciones
-                            <p class="img">
-                                <img src="../images/herramienta-de-reparacion.png" alt="" width="50"/>
-                            </p>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6 lead text-center">
-                    <div class="p-3 border caja">
-                        <p class="texto"> 
-                            Financiamiento disponible
-                            <p class="img">
-                                <img src="../images/ahorro.png" alt="" width="50"/>
-                            </p>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6 lead text-center">
-                    <div class="p-3 border caja">
-                        <p class="texto"> 
-                            Stock actualizado 
-                            <p class="img">
-                                <img src="../images/en-stock.png" alt="" width="50"/>
-                            </p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <p class="lead text-center">
-                        &COPY Derechos reservados 2022
-                    </p>
-        </footer>
+                        <div class="card text-center">
+                            <div class="card-header lead text-center">
+                                GameShop
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Informacion y contacto</h5>
+                                <p class="card-text">
+                                    <li>Aparcamiento, Calle Siles 203, Santa Marta, San José, San Pedro, 11501</li>
+                                    <li>8888-8888 / 2222-2222</li>
+                                    <li>contacto@gameshop.com</li>
+                                    <li>Lunes a Sábado de 9:00am a 6:00pm / Domingo cerrado.</li>
+                                </p>
+                                <a href="https://g.page/UFidelitasSanPedro?share" class="btn btn-primary">Mapa del sitio</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <p class="lead text-center">
+                                    &COPY Derechos reservados 2022
+                                </p>
+                            </div>
+                        </div>
+            </footer>
     </body>
 </html>
