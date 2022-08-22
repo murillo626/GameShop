@@ -36,9 +36,7 @@
                                                 <a class="nav-link active" sec:authorize="hasRole('ROLE_VENDEDOR')"aria-current="page"th:href="@{/cliente/listado/}" th:text="#{plantilla.cliente}"></a>
                                             </li>
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Categorias
-                                                </a>
+                                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{plantilla.categoria}"></a>
                                                 <ul class="dropdown-menu dropdown-menu-dark">
                                                     <li><a class="dropdown-item" th:href="@{/playstation/}" th:text="#{plantilla.playstation}"></a></li>
                                                     <li><a class="dropdown-item" th:href="@{/xbox/}" th:text="#{plantilla.xbox}"></a></li>
@@ -49,6 +47,12 @@
                                                     </li>
                                                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                                                 </ul>
+                                            </li>
+                                            <li class="nav-item">
+                                                <form method="POST" th:action="@{/logout}">
+                                                    <a href="#" onclick="this.parentNode.submit();" class="nav-link">
+                                                        <i class="fas fa-user-times"></i>[[#{login.logout}]]</a>
+                                                </form>
                                             </li>
                                         </ul>
                                     </div>
