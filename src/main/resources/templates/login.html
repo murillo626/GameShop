@@ -2,7 +2,7 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <head th:replace="layout/plantilla :: head">
-        <title>GameShop</title>
+        <title th:text="#{aplicacion.titulo}"></title>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -18,20 +18,20 @@
                     <div class="col-md-6 mx-auto">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="bg-light" id="navbarText" >login</h4>
+                                <h4 class="bg-light" id="navbarText">Log in</h4>
                             </div>
                             <div class="mb-3">
                                 <form method="post" th:action="@{/login}">
                                     <div class="mb-3">
-                                        <label for="username">username</label>
+                                        <label for="username" th:text="#{login.username}"></label>
                                         <input type="text" class="form-control" name="username" id="username" placeholder="Usuario"/>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="password">password</label>
+                                        <label for="password" th:text="#{login.password}"></label>
                                         <input type="password" class="form-control" name="password" id="password"placeholder="Clave"/>
                                     </div>
                                     <div>
-                                        <button type="submit" class="btn btn-primary" value="Login">login</button>
+                                        <button type="submit" class="btn btn-primary" value="Login" th:text="#{login.login}"></button>
                                     </div>
                                 </form>            
                             </div>

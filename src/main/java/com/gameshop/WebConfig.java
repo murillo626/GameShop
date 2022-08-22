@@ -20,4 +20,23 @@ public class WebConfig implements WebMvcConfigurer{
         registro.addViewController("/login");
         registro.addViewController("/errores/403").setViewName("/errores/403");
     }
+    
+    @Bean
+    public SessionLocaleResolver localeResolver() {
+        var slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(new Locale("es"));
+        return slr;
+    }
+    
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        var lci = new LocaleChangeInterceptor();
+        lci.setParamName("lang");
+        return lci;
+    }
+    
+    @Override
+    public void addInterceptors(InterceptorRegistry registro) {
+        registro.addInterceptor(localeChangeInterceptor());
+    }
 }

@@ -2,7 +2,7 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <head th:fragment="head">
-        <title>GameShop</title>
+        <title th:text="#{aplicacion.titulo}"></title>
         <meta charset="UTF-8">
             <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
             <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
@@ -17,33 +17,33 @@
                     <header th:fragmet="header" class="header">
                         <nav class="navbar navbar-dark bg-dark ">
                             <div class="container-fluid">
-                                <a class="logo" th:href="@{/}"> <img src="../images/logogame.png" alt="" height="80px" width=100px></a>
-                                
+                                <a class="logo" th:href="@{/}"> <img src="/images/logogame.png" alt="" height="80px" width=100px></a>
+
                                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                                     <div class="offcanvas-header">
-                                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+                                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" th:text="#{plantilla.menu}"></h5>
                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                     </div>
                                     <div class="offcanvas-body">
                                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                             <li class="nav-item">
-                                                <a class="nav-link active" sec:authorize="hasRole('ROLE_VENDEDOR')" aria-current="page"th:href="@{/articulo/listado/}">Articulos</a>
+                                                <a class="nav-link active" sec:authorize="hasRole('ROLE_VENDEDOR')" aria-current="page"th:href="@{/articulo/listado/}" th:text="#{plantilla.articulo}"></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link active" sec:authorize="hasRole('ROLE_VENDEDOR')"aria-current="page"th:href="@{/cliente/listado/}">Clientes</a>
+                                                <a class="nav-link active" sec:authorize="hasRole('ROLE_VENDEDOR')"aria-current="page"th:href="@{/cliente/listado/}" th:text="#{plantilla.cliente}"></a>
                                             </li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                   Categorias
+                                                    Categorias
                                                 </a>
                                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                                    <li><a class="dropdown-item" th:href="@{/playstation/}">PlayStation</a></li>
-                                                    <li><a class="dropdown-item" th:href="@{/xbox/}">Xbox</a></li>
-                                                    <li><a class="dropdown-item" th:href="@{/nintendo/}">Nintendo</a></li>
-                                                    <li><a class="dropdown-item" th:href="@{/microsoft/}">Microsoft</a></li>
+                                                    <li><a class="dropdown-item" th:href="@{/playstation/}" th:text="#{plantilla.playstation}"></a></li>
+                                                    <li><a class="dropdown-item" th:href="@{/xbox/}" th:text="#{plantilla.xbox}"></a></li>
+                                                    <li><a class="dropdown-item" th:href="@{/nintendo/}" th:text="#{plantilla.nintendo}"></a></li>
+                                                    <li><a class="dropdown-item" th:href="@{/microsoft/}" th:text="#{plantilla.microsoft}"></a></li>
                                                     <li>
                                                         <hr class="dropdown-divider">
                                                     </li>
@@ -55,75 +55,70 @@
                                 </div>
                             </div>
                         </nav>
-            </header>
-            <footer th:fragmet="footer" class="footer">
-            <br/>
-            <br/>
-            <br/>
-                <div class="container">
-                    <div class="row g-2">
-                        <div class="col-6 lead text-center">
-                            <div class="p-3 border caja ">
-                                <p class="texto">
-                                    Profesionales en videojuegos 
-                                        <p class="img">
-                                            <img src="../images/dispositivo-de-juego.png" width="50" alt=""/>
+                    </header>
+                    <footer th:fragmet="footer" class="footer">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="container">
+                            <div class="row g-2">
+                                <div class="col-6 lead text-center">
+                                    <div class="p-3 border caja ">
+                                        <p class="texto" th:text="#{plantilla.profesional}">
+                                            <p class="img">
+                                                <img src="../images/dispositivo-de-juego.png" width="50" alt=""/>
+                                            </p>
                                         </p>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-6 lead text-center">
-                            <div class="p-3 border caja">
-                                <p class="texto"> 
-                                    Servicio de reparaciones
-                                    <p class="img">
-                                        <img src="../images/herramienta-de-reparacion.png" alt="" width="50"/>
-                                    </p>
-                                </p>
-                            </div>
-                        </div>
-                            <div class="col-6 lead text-center">
-                                <div class="p-3 border caja">
-                                    <p class="texto"> 
-                                        Financiamiento disponible
-                                        <p class="img">
-                                            <img src="../images/ahorro.png" alt="" width="50"/>
-                                        </p>
-                                    </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6 lead text-center">
-                                <div class="p-3 border caja">
-                                    <p class="texto"> 
-                                        Stock actualizado 
-                                        <p class="img">
-                                            <img src="../images/en-stock.png" alt="" width="50"/>
+                                <div class="col-6 lead text-center">
+                                    <div class="p-3 border caja">
+                                        <p class="texto" th:text="#{plantilla.reparacion}">    
+                                            <p class="img">
+                                                <img src="../images/herramienta-de-reparacion.png" alt="" width="50"/>
+                                            </p>
                                         </p>
-                                    </p>
+                                    </div>
+                                </div>
+                                <div class="col-6 lead text-center">
+                                    <div class="p-3 border caja">
+                                        <p class="texto" th:text="#{plantilla.financiamiento}">
+                                            <p class="img">
+                                                <img src="../images/ahorro.png" alt="" width="50"/>
+                                            </p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6 lead text-center">
+                                    <div class="p-3 border caja">
+                                        <p class="texto" th:text="#{plantilla.stock}"> 
+                                            <p class="img">
+                                                <img src="../images/en-stock.png" alt="" width="50"/>
+                                            </p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                         <div class="card text-center">
-                            <div class="card-header lead text-center">
-                                GameShop
+                            <div class="card-header lead text-center" th:text="#{aplicacion.titulo}">                             
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Informacion y contacto</h5>
+                                <h5 class="card-title" th:text="#{plantilla.informacion}"></h5>
                                 <p class="card-text">
                                     <li>Aparcamiento, Calle Siles 203, Santa Marta, San José, San Pedro, 11501</li>
                                     <li>8888-8888 / 2222-2222</li>
                                     <li>contacto@gameshop.com</li>
                                     <li>Lunes a Sábado de 9:00am a 6:00pm / Domingo cerrado.</li>
                                 </p>
-                                <a href="https://g.page/UFidelitasSanPedro?share" class="btn btn-primary">Mapa del sitio</a>
+                                <a href="https://g.page/UFidelitasSanPedro?share" class="btn btn-primary" th:text="#{plantilla.mapa}" target=”_blank”></a>
                             </div>
                             <div class="card-footer text-muted">
-                                <p class="lead text-center">
-                                    &COPY Derechos reservados 2022
-                                </p>
+                                <p class="lead text-center"  th:text="#{plantilla.derechos}"></p>
+                                <a th:href="@{/(lang=es)}">ES</a>
+                                <a th:href="@{/(lang=en)}">EN</a>
                             </div>
                         </div>
-            </footer>
-    </body>
-</html>
+                    </footer>
+                </body>
+                </html>

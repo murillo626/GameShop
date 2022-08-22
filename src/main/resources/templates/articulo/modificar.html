@@ -3,15 +3,15 @@
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head th:replace="layout/plantilla :: head">
-        <title>GameShop</title>
+        <title th:text="#{aplicacion.titulo}"></title>
         <meta charset="UTF-8">
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2>Articulos</h2>
+            <h2 th:text="#{plantilla.articulo}"></h2>
             <br/>
-            <a th:href="@{/articulo/listado}">Regresar</a>
+            <a th:href="@{/articulo/listado}" th:text="#{general.regresar}"></a>
             <br/>
             <form th:action="@{/articulo/guardar}"
                 method="post"
@@ -19,7 +19,7 @@
                 
                 <input type="hidden" name="id_Articulo" th:field="*{id_Articulo}"/>
                 
-                <label for="categoria">Categoria:</label>
+                <label for="categoria" th:text="#{plantilla.categoria}"></label>
                 <select th:field="*{id_Categoria}">
                     <option
                         th:each="categoria: ${categorias}"
@@ -27,25 +27,22 @@
                         th:text="${categoria.descripcion}"/>
                 </select>
                 <br/>
-                <label for="descripcion">Descripcion</label>
+                <label for="descripcion" th:text="#{general.descripcion}"></label>
                 <input type="text" name="descripcion" th:field="*{descripcion}"/>
                 <br/>
-                <label for="detalle">Detalle</label>
+                <label for="detalle" th:text="#{general.detalle}"></label>
                 <textarea name="detelle" th:field="*{detalle}"/>
                 <br/>
-                <label for="precio">Precio</label>
+                <label for="precio" th:text="#{general.precio}"></label>
                 <input type="number" name="precio" th:field="*{precio}"/>
                 <br/>
-                <label for="existencias">Existencias</label>
+                <label for="existencias" th:text="#{general.existencias}"></label>
                 <input type="number" name="existencias" th:field="*{existencias}"/>
                 <br/>
-                <label for="activo">Activo</label>
+                <label for="activo" th:text="#{general.activo}"></label>
                 <input type="checkbox" name="activo" th:field="*{activo}"/>
-                <br/>
-                <label for="ruta">Imagen</label>
-                <textarea name="ruta" th:field="*{ruta}"/>
-                <br/>
-                <input type="submit" name="guardar" th:text="#{guardar}"/>
+                <br/>               
+                <input type="submit" name="guardar" th:text="#{general.guardar}"/>
             </form>
             </div>
                 <footer th:replace="layout/plantilla :: footer"/>

@@ -3,16 +3,16 @@
         xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head th:replace="layout/plantilla :: head">
-        <title>GameShop</title>
+        <title th:text="#{aplicacion.titulo}"></title>
         <meta charset="UTF-8">
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
             <div class="destacados">
-                <a  style="color: green;  font-family: fantasy; font-size: 60px;">Xbox</a>
+                <a  style="color: green;  font-family: fantasy; font-size: 60px;" th:text="#{plantilla.xbox}"></a>
             </div>
             <div class="destacados">
-                <a  style="color: green;  font-family: fantasy;">¡Tus articulos de Xbox favoritos los encontras acá!</a>
+                <a  style="color: green;  font-family: fantasy;" th:text="#{descripcion.xbox}"></a>
             </div>
             <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">                
                 <div class="card" th:each="articulo : ${articulos}" th:if="${articulo.id_Categoria==2}">
@@ -21,7 +21,7 @@
                         <h6 class="card-subtile mb-2 text-muted text-end">
                             [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]
                         </h6>
-                        <a class='card-link' th:href="@{/carrito/agregar/}+${articulo.id_Articulo}">Comprar</a>
+                        <a class='card-link' th:href="@{/carrito/agregar/}+${articulo.id_Articulo}" th:text="#{general.comprar}"></a>
                         <img th:src="${articulo.ruta}" alt="" width="150px"/>
                         <br/>
                         <p class="card-text">[[${articulo.detalle}]]</p>

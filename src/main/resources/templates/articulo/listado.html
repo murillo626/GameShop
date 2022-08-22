@@ -4,24 +4,24 @@
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head th:replace="layout/plantilla :: head">
-        <title>GameShop</title>
+        <title th:text="#{aplicacion.titulo}"></title>
         <meta charset="UTF-8">
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2>Listado de articulos</h2>
-            <a class="btn btn-primary" th:href="@{/articulo/nuevo}" sec:authorize="hasRole('ROLE_ADMIN')" role="button">Nuevo Articulo</a>
+            <h2 th:text="#{articulo.listado}"></h2>
+            <a class="btn btn-primary" th:href="@{/articulo/nuevo}" sec:authorize="hasRole('ROLE_ADMIN')" role="button" th:text="#{articulo.nuevo}"></a>
             <div thrif="${articulos !=null and !articulos.empty}">
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Existencias</th>
-                            <th scope="col">Activo</th>
-                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
-                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Modificar</th>
+                            <th scope="col" th:text="#{general.descripcion}"></th>
+                            <th scope="col" th:text="#{general.precio}"></th>
+                            <th scope="col" th:text="#{general.existencias}"></th>
+                            <th scope="col" th:text="#{general.activo}"></th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col" th:text="#{general.eliminar}"></th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')" scope="col" th:text="#{general.modificar}"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,8 +30,8 @@
                             <td scope="row" th:text="${'₡'+#numbers.formatDecimal(articulo.precio,3,2)}"></td>
                             <td scope="row" th:text="${articulo.existencias}"></td>
                             <td scope="row"><input type="checkbox" name="activo"th:checked="${articulo.activo}"disabled="true"/></td>
-                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}">Eliminar</a></td>
-                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}">Modificar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}" th:text="#{general.eliminar}"></a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}" th:text="#{general.modificar}"></a></td>
                         </tr>
                     </tbody>
                 </table>

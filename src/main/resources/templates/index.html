@@ -3,14 +3,14 @@
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <link href="/css/general.css" rel="stylesheet" type="text/css"/>
     <head th:replace="layout/plantilla :: head">
-        <title>GameShop</title>
+        <title th:text="#{aplicacion.titulo}">GameShop</title>
         <meta charset="UTF-8">
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div>
             <div class="destacados">
-                <a style="color: crimson; font-family: fantasy; font-size: 60px;">Ofertas</a>
+                <a style="color: crimson; font-family: fantasy; font-size: 60px;" th:text="#{plantilla.oferta}"></a>
             </div>
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -60,7 +60,7 @@
                 </button>
             </div>
             <div class="destacados">
-                <a style="color: crimson; font-family: fantasy; font-size: 60px;">Ofertas</a>
+                <a style="color: crimson; font-family: fantasy; font-size: 60px;" th:text="#{plantilla.promocion}"></a>
             </div>
             <ul class="item-list" style="padding-right: 80px;">
                 <li>

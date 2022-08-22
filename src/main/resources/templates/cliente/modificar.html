@@ -3,33 +3,33 @@
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:sec="http://thymeleaf.org/extras/spring-security">
     <head th:replace="layout/plantilla :: head">
-        <title>TechShop</title>
+        <title th:text="#{aplicacion.titulo}"></title>
         <meta charset="UTF-8">
         <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        <h2>Datos Cliente</h2>
+        <h2 th:text="#{cliente.datos}"></h2>
         <br/>
-        <a th:href="@{/cliente/listado}">Regresar</a>
+        <a th:href="@{/cliente/listado}" th:text="#{general.regresar}"></a>
         <br/>
         <form th:action="@{/cliente/guardar}"
               method="post"
               th:object="${cliente}">
             <input type="hidden" name="id_cliente" th:field="*{id_cliente}"/>
-            <label for="nombre">Nombre:</label>
+            <label for="nombre" th:text="#{general.nombre}"></label>
             <input type="text" name="nombre" th:field="*{nombre}"/>
             <br/>
-            <label for="apellidos">Apellidos:</label>
+            <label for="apellidos" th:text="#{general.apellidos}"></label>
             <input type="text" name="apellidos" th:field="*{apellidos}"/>
             <br/>
-            <label for="correo">Correo:</label>
+            <label for="correo" th:text="#{general.correo}"></label>
             <input type="email" name="correo" th:field="*{correo}"/>
             <br/>
-            <label for="telefono">Teléfono:</label>
+            <label for="telefono" th:text="#{general.telefono}"></label>
             <input type="tel" name="telefono" th:field="*{telefono}"/>
             <br/>
-            <label for="limite">Limite:</label>
+            <label for="limite" th:text="#{general.limite}"></label>
             <input type="number" name="limite" th:field="*{credito.limite}"/>
             <br/>
             <input type="submit" name="guardar" value="Guardar"/>
