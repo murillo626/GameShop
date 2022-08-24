@@ -1,19 +1,19 @@
 
 package com.gameshop.controller;
 
-import com.gameshop.services.Articulo_Services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import com.gameshop.services.ArticuloService;
 
 @Controller
 @Slf4j
 public class PlaystationController {
     
     @Autowired
-    private Articulo_Services Articuloservices;
+    private ArticuloService Articuloservices;
     
     @GetMapping("/playstation")
     public String inicio(Model model){

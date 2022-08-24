@@ -15,7 +15,7 @@
                     
                 </div>
             </div>
-            
+            <div class="row row-cols-3">
                 <div class="card" th:each="articulo : ${articulos}" th:if="${articulo.id_Categoria==1}">
                     <div class="card-body">
                         <h5 class="card-title">[[${articulo.descripcion}]]</h5>
@@ -40,8 +40,9 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
-        
+          
         <section th:fragment="listadoArticulosx" id="articulo">
         <div class="container">
             <div class="row row-cols-2">
@@ -50,7 +51,79 @@
                     
                 </div>
             </div>
-            
+            <div class="row row-cols-3">
+                <div class="card" th:each="articulo : ${articulos}" th:if="${articulo.id_Categoria==2}">
+                    <div class="card-body">
+                        <h5 class="card-title">[[${articulo.descripcion}]]</h5>
+                         <figure>
+                            <img th:src="@{${articulo.ruta}}" width="120"/>
+                            <figcaption>
+                                [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)+'('+articulo.existencias+')'}]]
+                            </figcaption>
+                        </figure>
+                        <form>
+                            <input type="hidden" name="texto" th:value="${articulo.id_Articulo}"/>
+                            <input type="hidden" name="texto" th:value="${articulo.existencias}"/>
+                            <button class="btn btn-ligth"
+                                    id="addCar"
+                                    name="addCar"
+                                    onclick="addCard(this.form)"
+                                    type="button">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </form>
+                        <p class="card-text">[[${articulo.detalle}]]</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        
+        <section th:fragment="listadoArticulosn" id="articulo">
+        <div class="container">
+            <div class="row row-cols-2">
+                <h2 class="inline" th:text="#{index.titulo}">Nuestros Articulos</h2>
+                <div id="resultBlock">
+                    
+                </div>
+            </div>
+            <div class="row row-cols-3">
+                <div class="card" th:each="articulo : ${articulos}" th:if="${articulo.id_Categoria==3}">
+                    <div class="card-body">
+                        <h5 class="card-title">[[${articulo.descripcion}]]</h5>
+                         <figure>
+                            <img th:src="@{${articulo.ruta}}" width="120"/>
+                            <figcaption>
+                                [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)+'('+articulo.existencias+')'}]]
+                            </figcaption>
+                        </figure>
+                        <form>
+                            <input type="hidden" name="texto" th:value="${articulo.id_Articulo}"/>
+                            <input type="hidden" name="texto" th:value="${articulo.existencias}"/>
+                            <button class="btn btn-ligth"
+                                    id="addCar"
+                                    name="addCar"
+                                    onclick="addCard(this.form)"
+                                    type="button">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </form>
+                        <p class="card-text">[[${articulo.detalle}]]</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        
+        <section th:fragment="listadoArticulosm" id="articulo">
+        <div class="container">
+            <div class="row row-cols-2">
+                <h2 class="inline" th:text="#{index.titulo}">Nuestros Articulos</h2>
+                <div id="resultBlock">
+                    
+                </div>
+            </div>
+            <div class="row row-cols-3">
                 <div class="card" th:each="articulo : ${articulos}" th:if="${articulo.id_Categoria==4}">
                     <div class="card-body">
                         <h5 class="card-title">[[${articulo.descripcion}]]</h5>
@@ -74,6 +147,7 @@
                         <p class="card-text">[[${articulo.detalle}]]</p>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
         
@@ -165,5 +239,7 @@
                 </div>
             </div>            
         </section>
+        
+        
     </body>
 </html>

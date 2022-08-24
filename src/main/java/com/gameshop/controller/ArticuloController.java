@@ -1,23 +1,23 @@
 package com.gameshop.controller;
 import com.gameshop.Domain.Articulo;
-import com.gameshop.services.Articulo_Services;
-import com.gameshop.services.Categoria_Services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import com.gameshop.services.ArticuloService;
+import com.gameshop.services.CategoriaService;
 
 @Controller
 @Slf4j
 public class ArticuloController {
 
     @Autowired
-    private Articulo_Services Articuloservices;
+    private ArticuloService Articuloservices;
     //El getmappig es para establecer una ruta del sitio
     @Autowired
-    private Categoria_Services CategoriaService;
+    private CategoriaService CategoriaService;
     
     @GetMapping("/articulo/listado")
     public String inicio(Model model) {

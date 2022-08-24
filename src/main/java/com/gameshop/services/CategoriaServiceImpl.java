@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service //indica que clase sera de servicios
-public class CategoriaServiceImpl implements Categoria_Services{
+public class CategoriaServiceImpl implements CategoriaService{
 
     @Autowired
     private CategoriaDao categoriaDao;

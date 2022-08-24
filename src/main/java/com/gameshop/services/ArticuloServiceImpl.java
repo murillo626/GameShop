@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 @Service //indica que clase sera de servicios
-public class ArticuloServiceImpl implements Articulo_Services{
+public class ArticuloServiceImpl implements ArticuloService{
 
     @Autowired
     private ArticuloDao articuloDao;

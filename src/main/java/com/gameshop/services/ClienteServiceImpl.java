@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service //indica que clase sera de servicios
-public class ClienteServiceImpl implements Cliente_Services{
+public class ClienteServiceImpl implements ClienteService{
 
     @Autowired
     private ClienteDao clienteDao;

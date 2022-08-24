@@ -1,19 +1,19 @@
 package com.gameshop.controller;
 import com.gameshop.Domain.Cliente;
-import com.gameshop.services.Cliente_Services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import com.gameshop.services.ClienteService;
 
 @Controller
 @Slf4j
 public class ClienteController {
 
     @Autowired
-    private Cliente_Services Clienteservices;
+    private ClienteService Clienteservices;
     //El getmappig es para establecer una ruta del sitio
 
     @GetMapping("/cliente/listado")
