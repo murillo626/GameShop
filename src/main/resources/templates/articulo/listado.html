@@ -30,8 +30,18 @@
                             <td scope="row" th:text="${'₡'+#numbers.formatDecimal(articulo.precio,3,2)}"></td>
                             <td scope="row" th:text="${articulo.existencias}"></td>
                             <td scope="row"><input type="checkbox" name="activo"th:checked="${articulo.activo}"disabled="true"/></td>
-                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}" th:text="#{general.eliminar}"></a></td>
-                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}" th:text="#{general.modificar}"></a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a th:href="@{/articulo/eliminar/} + ${articulo.id_Articulo}" 
+                                    class="btn btn-danger">
+                                    <i class='fas fa-trash'></i> [[#{general.eliminar}]]
+                                </a>
+                            </td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a th:href="@{/articulo/modificar/} + ${articulo.id_Articulo}" 
+                                    class="btn btn-success">
+                                    <i class='fas fa-pencil'></i> [[#{general.modificar}]]
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

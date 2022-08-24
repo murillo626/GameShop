@@ -22,7 +22,7 @@
                         <h6 class="card-subtile mb-2 text-muted text-end">
                             [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]
                         </h6>
-                        <a class='card-link' th:href="@{/carrito/agregar/}+${articulo.id_Articulo}" th:text="#{general.comprar}"></a>
+                        <a class='card-link fas fa-cart-plus' th:href="@{/carrito/agregar/}+${articulo.id_Articulo}"></a>
                         <img th:src="${articulo.ruta}" alt="" width="150px"/>
                         <br/>
                         <p class="card-text">[[${articulo.detalle}]]</p>

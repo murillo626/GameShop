@@ -32,8 +32,19 @@
                             <td scope="row" th:text="${cliente.correo}"></td>
                             <td scope="row" th:text="${cliente.telefono}"></td>
                             <td scope="row" th:text="${#numbers.formatDecimal(cliente.credito.limite,3,2)}"></td>
-                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/cliente/eliminar/} + ${cliente.id_cliente}" th:text="#{general.eliminar}"></a></td>
-                            <td sec:authorize="hasRole('ROLE_ADMIN')" scope="row"><a th:href="@{/cliente/modificar/} + ${cliente.id_cliente}"th:text="#{general.modificar}"></a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a th:href="@{/cliente/eliminar/} + ${cliente.id_cliente}" 
+                                    class="btn btn-danger">
+                                    <i class='fas fa-trash'></i> [[#{general.eliminar}]]
+                                </a>
+                            </td>                            
+                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a th:href="@{/cliente/modificar/} + ${cliente.id_cliente}" 
+                                    class="btn btn-success">
+                                    <i class='fas fa-pencil'></i> [[#{general.modificar}]]
+                                </a>
+                            </td>
+                            
                         </tr>
                     </tbody>
                 </table>

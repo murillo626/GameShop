@@ -22,10 +22,12 @@
 }
 
 .texto{
-    color: white;
+    margin-top: 50px;
+    font-size: 25px;
+    text-align: center;
+    margin-left: -230px;
     
 }
-
 .navbar-brand {
     font-size: 25px;
 }

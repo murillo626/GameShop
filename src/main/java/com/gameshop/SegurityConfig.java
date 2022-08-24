@@ -45,12 +45,11 @@ public class SegurityConfig extends WebSecurityConfigurerAdapter{
                     "/categoria/listado",
                     "/cliente/listado")
             .hasAnyRole("ADMIN","VENDEDOR")
-            .antMatchers("/")
-            .hasAnyRole("ADMIN","VENDEDOR","USER")
-            .and()
-            .formLogin()
-            .loginPage("/login")
-            .and()
-            .exceptionHandling().accessDeniedPage("/errores/403");
+            .antMatchers("/","/carrito/**")
+            .permitAll()
+            .antMatchers("/facturar/carrito/")
+            .authenticated()
+            .and().formLogin().loginPage("/login")
+            .and().exceptionHandling().accessDeniedPage("/errores/403");
     }
 }   

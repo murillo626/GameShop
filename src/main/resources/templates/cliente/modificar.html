@@ -10,8 +10,8 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <h2 th:text="#{cliente.datos}"></h2>
-        <br/>
-        <a th:href="@{/cliente/listado}" th:text="#{general.regresar}"></a>
+        <br/>        
+        <a th:href="@{/cliente/listado}" th:text="#{general.regresar}" class="btn btn-primary"></a>
         <br/>
         <form th:action="@{/cliente/guardar}"
               method="post"
@@ -32,7 +32,7 @@
             <label for="limite" th:text="#{general.limite}"></label>
             <input type="number" name="limite" th:field="*{credito.limite}"/>
             <br/>
-            <input type="submit" name="guardar" value="Guardar"/>
+            <input  class="btn btn-primary" type="submit" name="guardar" value="Guardar"/>
         </form>
             <footer th:replace="layout/plantilla :: footer"/>
     </body>

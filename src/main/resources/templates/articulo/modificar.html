@@ -11,7 +11,7 @@
         <div class="contenido">
             <h2 th:text="#{plantilla.articulo}"></h2>
             <br/>
-            <a th:href="@{/articulo/listado}" th:text="#{general.regresar}"></a>
+            <a th:href="@{/articulo/listado}" th:text="#{general.regresar}"class="btn btn-success"></a>
             <br/>
             <form th:action="@{/articulo/guardar}"
                 method="post"
@@ -42,7 +42,11 @@
                 <label for="activo" th:text="#{general.activo}"></label>
                 <input type="checkbox" name="activo" th:field="*{activo}"/>
                 <br/>               
-                <input type="submit" name="guardar" th:text="#{general.guardar}"/>
+                <br/>
+                <label for="imagen" th:text="#{general.ruta}"></label>
+                <textarea name="imagen" th:field="*{ruta}"/>
+                <br/>
+                <input class="btn btn-success" type="submit" name="guardar"/>
             </form>
             </div>
                 <footer th:replace="layout/plantilla :: footer"/>

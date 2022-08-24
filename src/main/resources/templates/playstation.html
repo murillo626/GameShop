@@ -8,32 +8,23 @@
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        <div class="container">
-            <div class="destacados">
-                <a style="color: blue;  font-family: fantasy; font-size: 60px;" th:text="#{plantilla.playstation}"></a>
+        <div class="destacados">
+                <a  style="color:blue;  font-family: fantasy; font-size: 60px;" th:text="#{plantilla.playstation}"></a>
             </div>
-             <div class="destacados">
+            <div class="destacados">
                 <a  style="color: blue;  font-family: fantasy;" th:text="#{descripcion.playstation}"></a>
             </div>
-
-            <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">                
-                <div class="card" th:each="articulo : ${articulos}" th:if="${articulo.id_Categoria==1}">
-                    <div class="card-body">
-                        <h5 class="card-title">[[${articulo.descripcion}]]</h5>
-                        <h6 class="card-subtile mb-2 text-muted text-end">
-                            [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]
-                        </h6>
-                        <a class='card-link' th:href="@{/carrito/agregar/}+${articulo.id_Articulo}" th:text="#{general.comprar}"></a>
-                        <img th:src="${articulo.ruta}" alt="" width="150px"/>
-                        <br/>
-                        <p class="card-text">[[${articulo.detalle}]]</p>
-                    </div>
-                </div>
-            </div>
-            <div th:if="${articulos == null or articulos.empty}">
-                <h3>[[#{articulo.no_mostrar}]]</h3>
-            </div>
-        </div>
+        <section th:replace="carrito/fragmentoscarrito::listadoArticulos"/>
         <footer th:replace="layout/plantilla :: footer"/>
+        
+        <script>
+            function addCard(formulario){
+                var valor = formulario.elements[0].value;
+                var url = "/carrito/agregar";
+                url =url+"/"+valor;
+                $("resultsBlock").load(url);
+            }
+        </script>
+        
     </body>
 </html>
